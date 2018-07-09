@@ -15,8 +15,8 @@ public class ProductDAOTest {
 	@Test
 	public void testSave() {
 		Product p = new Product();
-		 p.setProductName("电风扇");
-		 p.setBrand("康佳");
+		 p.setProductName("鐢佃剳");
+		 p.setBrand("鑻规灉");
 		 p.setSupplier("pppp");
 		 p.setSalePrice(new BigDecimal(500));
 		 p.setCostPrice(new BigDecimal(100.8));
@@ -33,8 +33,8 @@ public class ProductDAOTest {
 
 	@Test
 	public void testUpdate() {
-		Product p = productDAO.get(3L);
-		 p.setProductName("电脑");
+		Product p = productDAO.get(4L);
+		 p.setProductName("鐢佃剳123");
 		 p.setBrand("pc");
 		 productDAO.update(p);
 	}

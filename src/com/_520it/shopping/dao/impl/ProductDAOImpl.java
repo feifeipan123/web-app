@@ -20,7 +20,7 @@ public class ProductDAOImpl implements IProductDAO{
 	    	 String sql = "insert into product(productName,brand,supplier,"
 	    	 		+ "salePrice,costPrice,cutoff,dir_id) VALUES(?,?,?,?,?,?,?)";
 	    	 Class.forName("com.mysql.jdbc.Driver");
-	    	 conn = DriverManager.getConnection("jdbc:mysql:///test","root","921012");
+	    	 conn = DriverManager.getConnection("jdbc:mysql:///test??useUnicode=true&characterEncoding=UTF-8","root","921012");
 	    	 ps = conn.prepareStatement(sql);
 		     ps.setString(1,obj.getProductName());
 		     ps.setString(2,obj.getBrand());
@@ -59,7 +59,7 @@ public class ProductDAOImpl implements IProductDAO{
 	     try{
 	    	 String sql = "delete from product where id=?";
 	    	 Class.forName("com.mysql.jdbc.Driver");
-	    	 conn = DriverManager.getConnection("jdbc:mysql:///test","root","921012");
+	    	 conn = DriverManager.getConnection("jdbc:mysql:///test?useUnicode=true&characterEncoding=UTF-8","root","921012");
 	    	 ps = conn.prepareStatement(sql);
 		     ps.setLong(1,id);
 		     ps.executeUpdate();
@@ -92,7 +92,7 @@ public class ProductDAOImpl implements IProductDAO{
 	    	 String sql = "update product set productName=?,brand=?,supplier=?,"
 	    	 		+ "salePrice=?,costPrice=?,cutoff=?,dir_id=? where id=?";
 	    	 Class.forName("com.mysql.jdbc.Driver");
-	    	 conn = DriverManager.getConnection("jdbc:mysql:///test","root","921012");
+	    	 conn = DriverManager.getConnection("jdbc:mysql:///test?useUnicode=true&characterEncoding=UTF-8","root","921012");
 	    	 ps = conn.prepareStatement(sql);
 		     ps.setString(1,obj.getProductName());
 		     ps.setString(2,obj.getBrand());
@@ -133,7 +133,7 @@ public class ProductDAOImpl implements IProductDAO{
 	     try{
 	    	 String sql = "select * from product where id=?";
 	    	 Class.forName("com.mysql.jdbc.Driver");
-	    	 conn = DriverManager.getConnection("jdbc:mysql:///test","root","921012");
+	    	 conn = DriverManager.getConnection("jdbc:mysql:///test?useUnicode=true&characterEncoding=UTF-8","root","921012");
 	    	 ps = conn.prepareStatement(sql);
 	    	 ps.setObject(1, id);
 	    	 rs = ps.executeQuery();
@@ -186,7 +186,7 @@ public class ProductDAOImpl implements IProductDAO{
      try{
     	 String sql = "select * from product";
     	 Class.forName("com.mysql.jdbc.Driver");
-    	 conn = DriverManager.getConnection("jdbc:mysql:///test","root","921012");
+    	 conn = DriverManager.getConnection("jdbc:mysql:///test?useUnicode=true&characterEncoding=UTF-8","root","921012");
     	 ps = conn.prepareStatement(sql);
     	 rs = ps.executeQuery();
     	 while(rs.next()){
