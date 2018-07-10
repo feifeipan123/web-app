@@ -11,15 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com._520it.shopping.dao.IProductDAO;
+import com._520it.shopping.dao.IProductDirDAO;
 import com._520it.shopping.dao.impl.ProductDAOImpl;
+import com._520it.shopping.dao.impl.ProductDirDAOImpl;
 import com._520it.shopping.domain.Product;
 
 @WebServlet("/product")
 public class ProductServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	private IProductDAO dao;
+	private IProductDirDAO dirDao;
 	public void init() throws ServletException {
 	        dao = new ProductDAOImpl();
+	        dirDao = new ProductDirDAOImpl();
 	}
 	 
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
@@ -61,6 +65,7 @@ public class ProductServlet extends HttpServlet{
 			Product p = dao.get(Long.valueOf(id));
 			req.setAttribute("product",p);
 		}
+		req.setAttribute("dirs",dirDao.listAll());
 		req.getRequestDispatcher("WEB-INF/views/product/edit.jsp").forward(req,resp);
 	}
 

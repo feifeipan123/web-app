@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +8,6 @@
 <title>编辑</title>
 </head>
 <body>
-
 <form action="product?cmd=save" method="post">
     <input type="hidden" name="id" value="${product.id}"/>
     <table border="1" cellpadding="0" cellspacing="0">
@@ -51,10 +51,9 @@
              <td>货品分类</td>
              <td>
                 <select name="dir_id">
-                   <option value="1" ${product.dir_id==1?"selected":""}>鼠标</option>
-                   <option value="2" ${product.dir_id==2?"selected":""}>无线鼠标</option>
-                   <option value="3" ${product.dir_id==3?"selected":""}>有线鼠标</option>
-                   <option value="4" ${product.dir_id==4?"selected":""}>美女鼠标</option>
+	                <c:forEach items="${dirs}" var="d" varStatus="vs">
+	                    <option value="${d.id}" ${product.dir_id==d.id?"selected":""}>${d.dirName}</option>
+	                </c:forEach>
                 </select>
              </td>
          </tr>
