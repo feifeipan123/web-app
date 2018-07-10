@@ -15,7 +15,7 @@ public class ProductDAOTest {
 	@Test
 	public void testSave() {
 		Product p = new Product();
-		 p.setProductName("电脑");
+		 p.setProductName("电脑123");
 		 p.setBrand("苹果");
 		 p.setSupplier("pppp");
 		 p.setSalePrice(new BigDecimal(500));
@@ -23,7 +23,6 @@ public class ProductDAOTest {
 		 p.setCutoff(0.7);
 		 p.setDir_id(1234L);
 		productDAO.save(p);
-	
 	}
 
 	@Test
